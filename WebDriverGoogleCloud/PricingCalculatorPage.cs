@@ -25,5 +25,12 @@ namespace WebDriverGoogleCloud
 
             searchField.SendKeys(Keys.Enter);
         }
+
+        public void OpenSearchResult(string resultText)
+        {
+            // IWebElement searchResultLink = webDriver.FindElement(By.XPath("//*[@id=\"___gcse_0\"]/div/div/div/div[5]/div[2]/div/div/div[1]/div[1]/div/div[1]/div/a"));
+            IWebElement searchResultLink = webDriver.FindElement(By.XPath($"//a[contains(text(), '{resultText}')]"));
+            searchResultLink.Click();
+        }
     }
 }
