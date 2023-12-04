@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "MDgL1SUx25R9TZM3N7aQkMn5cvJHpsBqhHdU96pZWAcqqP8afjXl/SJxyUJI0Tu9rK0xx+Saqt3Tjj5MR0EtzA==",
+  "dgSpecHash": "sfj7xeVoH5T+0Wbl6eYYa/i2pDl+etaE0mNO6PNtzY9LOaIgX/uQnPFy3xiU4Kn9KAXbjz9SDKx/qJ4LHJSQIQ==",
   "success": true,
   "projectFilePath": "/Users/aleksandrlukasuk/epam/Automated Testing Basics in .NET/Webdriver (ENG)/WebDriverGoogleCloud/WebDriverGoogleCloud/WebDriverGoogleCloud.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/aleksandrlukasuk/.nuget/packages/microsoft.win32.systemevents/7.0.0/microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/selenium.webdriver/4.15.0/selenium.webdriver.4.15.0.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/system.drawing.common/7.0.0/system.drawing.common.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
