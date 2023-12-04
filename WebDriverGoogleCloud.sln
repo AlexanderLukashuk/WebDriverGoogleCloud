@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriverGoogleCloud", "WebDriverGoogleCloud\WebDriverGoogleCloud.csproj", "{3305B76B-B974-4246-8D8A-F34664D413DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriverGoogleCloud.Test", "WebDriverGoogleCloud.Test\WebDriverGoogleCloud.Test.csproj", "{0BF43D3D-0DD0-462C-B8DD-0DC3110455AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3305B76B-B974-4246-8D8A-F34664D413DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3305B76B-B974-4246-8D8A-F34664D413DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3305B76B-B974-4246-8D8A-F34664D413DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3305B76B-B974-4246-8D8A-F34664D413DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF43D3D-0DD0-462C-B8DD-0DC3110455AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF43D3D-0DD0-462C-B8DD-0DC3110455AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF43D3D-0DD0-462C-B8DD-0DC3110455AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF43D3D-0DD0-462C-B8DD-0DC3110455AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
