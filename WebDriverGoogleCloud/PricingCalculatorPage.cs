@@ -108,7 +108,7 @@ namespace WebDriverGoogleCloud
             addToEstimateButton.Click();
         }
 
-        public string SendEmail()
+        public void SendEmail()
         {
             IWebElement emailEstimate = webDriver.FindElement(By.XPath("//*[@id=\"Email Estimate\"]"));
 
@@ -122,16 +122,6 @@ namespace WebDriverGoogleCloud
 
             IWebElement sendEmailButton = webDriver.FindElement(By.XPath("//*[@id=\"dialogContent_597\"]/form/md-dialog-actions/button[2]"));
             sendEmailButton.Click();
-
-            webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
-
-            IWebElement emailTitleLink = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[4]/ul/li[2]/div[1]/a"));
-            emailTitleLink.Click();
-
-            IWebElement emailTextElement = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[1]/h3"));
-            string emailText = emailTextElement.Text;
-
-            return emailText;
         }
 
         public string GenerateEmail()
@@ -149,6 +139,19 @@ namespace WebDriverGoogleCloud
             // Clipboard.SetText(email);
 
             return email;
+        }
+
+        public string CheckEmail()
+        {
+            webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
+
+            IWebElement emailTitleLink = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[4]/ul/li[2]/div[1]/a"));
+            emailTitleLink.Click();
+
+            IWebElement emailTextElement = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[1]/h3"));
+            string emailText = emailTextElement.Text;
+
+            return emailText;
         }
     }
 }
