@@ -112,21 +112,7 @@ namespace WebDriverGoogleCloud
         {
             IWebElement emailEstimate = webDriver.FindElement(By.XPath("//*[@id=\"Email Estimate\"]"));
 
-            ((IJavaScriptExecutor)webDriver).ExecuteScript("window.open();");
-
-            // Переключитесь на новую вкладку
-            webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
-
-            // Перейдите по указанному URL
-            webDriver.Navigate().GoToUrl("https://temp-mail.org/");
-
-            IWebElement emailElement = webDriver.FindElement(By.XPath("//*[@id=\"mail\"]"));
-
-            string email = emailElement.Text;
-
-            // Clipboard.SetText(email);
-
-            // return email;
+            string email = GenerateEmail();
 
             webDriver.SwitchTo().Window(webDriver.WindowHandles.First());
 
@@ -146,6 +132,23 @@ namespace WebDriverGoogleCloud
             string emailText = emailTextElement.Text;
 
             return emailText;
+        }
+
+        public string GenerateEmail()
+        {
+            ((IJavaScriptExecutor)webDriver).ExecuteScript("window.open();");
+
+            webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
+
+            webDriver.Navigate().GoToUrl("https://temp-mail.org/");
+
+            IWebElement emailElement = webDriver.FindElement(By.XPath("//*[@id=\"mail\"]"));
+
+            string email = emailElement.Text;
+
+            // Clipboard.SetText(email);
+
+            return email;
         }
     }
 }
