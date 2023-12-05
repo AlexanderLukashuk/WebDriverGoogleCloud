@@ -107,5 +107,45 @@ namespace WebDriverGoogleCloud
             IWebElement addToEstimateButton = webDriver.FindElement(By.XPath("//*[@id=\"mainForm\"]/div[2]/div/md-card/md-card-content/div/div[1]/form/div[20]/button"));
             addToEstimateButton.Click();
         }
+
+        public string SendEmail()
+        {
+            IWebElement emailEstimate = webDriver.FindElement(By.XPath("//*[@id=\"Email Estimate\"]"));
+
+            ((IJavaScriptExecutor)webDriver).ExecuteScript("window.open();");
+
+            // Переключитесь на новую вкладку
+            webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
+
+            // Перейдите по указанному URL
+            webDriver.Navigate().GoToUrl("https://temp-mail.org/");
+
+            IWebElement emailElement = webDriver.FindElement(By.XPath("//*[@id=\"mail\"]"));
+
+            string email = emailElement.Text;
+
+            // Clipboard.SetText(email);
+
+            // return email;
+
+            webDriver.SwitchTo().Window(webDriver.WindowHandles.First());
+
+            IWebElement emailInput = webDriver.FindElement(By.XPath("//*[@id=\"input_591\"]"));
+            emailInput.Clear();
+            emailInput.SendKeys(email);
+
+            IWebElement sendEmailButton = webDriver.FindElement(By.XPath("//*[@id=\"dialogContent_597\"]/form/md-dialog-actions/button[2]"));
+            sendEmailButton.Click();
+
+            webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
+
+            IWebElement emailTitleLink = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[4]/ul/li[2]/div[1]/a"));
+            emailTitleLink.Click();
+
+            IWebElement emailTextElement = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[1]/h3"));
+            string emailText = emailTextElement.Text;
+
+            return emailText;
+        }
     }
 }
