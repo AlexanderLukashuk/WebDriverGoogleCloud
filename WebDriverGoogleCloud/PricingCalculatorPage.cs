@@ -15,6 +15,21 @@ namespace WebDriverGoogleCloud
             webDriver = driver;
         }
 
+        public string Calculate(string calculatorName)
+        {
+            SearchForCalculator();
+
+            OpenSearchResult(calculatorName);
+
+            CalculateEstimate();
+
+            SendEmail();
+
+            string email = CheckEmail();
+
+            return email;
+        }
+
         public void SearchForCalculator()
         {
             IWebElement icon = webDriver.FindElement(By.XPath("//*[@id=\"kO001e\"]/div[2]/div[1]/div/div[2]/div[2]/div[1]/form/div/input"));
