@@ -8,6 +8,8 @@ namespace WebDriverGoogleCloud.Pages
 {
     public class MainPage : BasePage
     {
+        private const string BASE_URL = "https://cloud.google.com/";
+
         public MainPage(IWebDriver driver) : base(driver) {}
 
         public IWebElement SearchIcon => WebDriver.FindElement(By.XPath("//*[@id=\"kO001e\"]/div[2]/div[1]/div/div[2]/div[2]/div[1]/form/div/input"));
@@ -21,6 +23,12 @@ namespace WebDriverGoogleCloud.Pages
             SearchField.SendKeys("Google Cloud Platform Pricing Calculator");
 
             SearchField.SendKeys(Keys.Enter);
+        }
+
+        public void OpenPage()
+        {
+            WebDriver.Navigate().GoToUrl(BASE_URL);
+            Console.WriteLine("Google cloud main opened");
         }
     }
 }
