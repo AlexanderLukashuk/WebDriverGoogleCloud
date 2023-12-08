@@ -11,6 +11,8 @@ namespace WebDriverGoogleCloud.Pages
     {
         public CalculatorPage(IWebDriver driver) : base(driver) {}
 
+        public EmailPage EmailPage => new EmailPage(WebDriver);
+
         public IWebElement NumberOfInstancesInput => WebDriver.FindElement(By.Id("input_101"));
 
         public IWebElement OperatingSystemInput => WebDriver.FindElement(By.XPath("//*[@id=\"select_value_label_736\"]"));
@@ -95,6 +97,22 @@ namespace WebDriverGoogleCloud.Pages
             CommitedUsageOneYear.Click();
 
             AddToEstimateButton.Click();
+        }
+
+        public void SendEmail()
+        {
+            // IWebElement emailEstimate = WebDriver.FindElement(By.XPath("//*[@id=\"Email Estimate\"]"));
+
+            string email = EmailPage.GenerateEmail();
+
+            WebDriver.SwitchTo().Window(WebDriver.WindowHandles.First());
+
+            IWebElement emailInput = WebDriver.FindElement(By.XPath("//*[@id=\"input_591\"]"));
+            emailInput.Clear();
+            emailInput.SendKeys(email);
+
+            IWebElement sendEmailButton = WebDriver.FindElement(By.XPath("//*[@id=\"dialogContent_597\"]/form/md-dialog-actions/button[2]"));
+            sendEmailButton.Click();
         }
     }
 }
