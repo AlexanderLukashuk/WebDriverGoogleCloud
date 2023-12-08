@@ -31,12 +31,12 @@ namespace WebDriverGoogleCloud.Pages
 
         public string CheckEmail()
         {
-            webDriver.SwitchTo().Window(webDriver.WindowHandles.Last());
+            WebDriver.SwitchTo().Window(WebDriver.WindowHandles.Last());
 
-            IWebElement emailTitleLink = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[4]/ul/li[2]/div[1]/a"));
+            IWebElement emailTitleLink = WebDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[4]/ul/li[2]/div[1]/a"));
             emailTitleLink.Click();
 
-            IWebElement emailTextElement = webDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[1]/h3"));
+            IWebElement emailTextElement = WebDriver.FindElement(By.XPath("//*[@id=\"tm-body\"]/main/div[1]/div/div[2]/div[2]/div/div[1]/div/div[2]/div[3]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[1]/h3"));
             string emailText = emailTextElement.Text;
 
             return emailText;
