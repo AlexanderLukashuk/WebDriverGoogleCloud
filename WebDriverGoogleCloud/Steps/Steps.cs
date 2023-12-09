@@ -55,10 +55,12 @@ namespace WebDriverGoogleCloud.Steps
             emailPage.GenerateEmail();
         }
 
-        public void SendEmail()
+        public string SendEmail()
         {
             calculatorPage.SendEmail();
-            emailPage.CheckEmail();
+            string textFromEmail = emailPage.CheckEmail();
+
+            return textFromEmail;
         }
     }
 }
