@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "C9+GD49xRXZmS/BMwtqaqUF2mTs3EjfXPtMJrMbqVGrh5jKHrSLcigNkJpPnWYddVyHodKSiCNEL2kGjZmy47A==",
+  "dgSpecHash": "PR0uYsuuiPYwysT49jP71SlbN2h3pjWmOQJi84btQ0Vl8XCzaCz0SDOW1xQiOtg70gSquLjJC7SAURR0MSnwGA==",
   "success": true,
   "projectFilePath": "/Users/aleksandrlukasuk/epam/Automated Testing Basics in .NET/Webdriver (ENG)/WebDriverGoogleCloud/WebDriverGoogleCloud.Test/WebDriverGoogleCloud.Test.csproj",
   "expectedPackageFiles": [
     "/Users/aleksandrlukasuk/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/dotnetseleniumextras.pageobjects/3.11.0/dotnetseleniumextras.pageobjects.3.11.0.nupkg.sha512",
     "/Users/aleksandrlukasuk/.nuget/packages/microsoft.codecoverage/17.6.0/microsoft.codecoverage.17.6.0.nupkg.sha512",
     "/Users/aleksandrlukasuk/.nuget/packages/microsoft.net.test.sdk/17.6.0/microsoft.net.test.sdk.17.6.0.nupkg.sha512",
     "/Users/aleksandrlukasuk/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
