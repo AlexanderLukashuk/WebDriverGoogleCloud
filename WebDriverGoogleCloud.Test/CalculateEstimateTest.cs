@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
+using WebDriverGoogleCloud.Driver;
 
 namespace WebDriverGoogleCloud.Test
 {
@@ -33,6 +35,15 @@ namespace WebDriverGoogleCloud.Test
             string emailText = steps.SendEmail();
 
             Assert.AreEqual("Total Estimated Monthly Cost", emailText);
+        }
+
+        [Obsolete]
+        public static void CaptureScrenshot()
+        {
+            var screenshot = ((ITakesScreenshot)WebDriverManager.Driver).GetScreenshot();
+            var screenshotPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"screenshot_{DateTime.Now:yyyyMMddHHmmss}.png");
+            screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+            Console.WriteLine($"Screenshot saved: {screenshotPath}");
         }
     }
 }
