@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using WebDriverGoogleCloud.Driver;
 
@@ -20,8 +21,13 @@ namespace WebDriverGoogleCloud.Test
         }
 
         [TearDown]
+        [Obsolete]
         public void TearDown()
         {
+            if (TestContext.CurrentContext.Result.Outcome == ResultState.Failure)
+            {
+                CaptureScrenshot();
+            }
             steps.CloseBrowser();
         }
 
