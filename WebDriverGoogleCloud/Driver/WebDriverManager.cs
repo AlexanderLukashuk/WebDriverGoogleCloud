@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 
 namespace WebDriverGoogleCloud.Driver
 {
@@ -60,6 +61,13 @@ namespace WebDriverGoogleCloud.Driver
             ChromeOptions options = new ChromeOptions();
 
             webDriver = new ChromeDriver(options);
+        }
+
+        private static void InitializeFirefoxDriver()
+        {
+            FirefoxOptions options = new FirefoxOptions();
+
+            webDriver = new FirefoxDriver(options);
         }
 
         public static void QuitDriver()
