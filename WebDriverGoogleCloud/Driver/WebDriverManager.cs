@@ -38,36 +38,54 @@ namespace WebDriverGoogleCloud.Driver
 
         public static void InitializeDriver()
         {
-            string browser = configuration["WebDriver:Browser"]!;
+            string selectedBrowser = configuration["WebDriver:SelectedBrowser"]!;
+            var browserOptions = configuration.GetSection($"WebDriver:Browsers:{selectedBrowser}");
 
-            switch(browser.ToLower())
+            if (browserOptions == null)
+            {
+                throw new InvalidOperationException($"Browser configuration for '{selectedBrowser}' not found in appsettings.josn");
+            }
+
+            string browserType = browserOptions["Type"]!;
+
+            switch(browserType.ToLower())
             {
                 case "chrome":
-                    InitializeChromeDriver();
+                    InitializeChromeDriver(browserOptions);
                     break;
                 case "firefox":
-                    InitializeFirefoxDriver();
+                    InitializeFirefoxDriver(browserOptions);
                     break;
                 default:
-                    throw new ArgumentException("Invalid browser specified in the configuration file.");
+                    throw new ArgumentException("Invalid browser type '{browserType}' specified in appsettings.json.");
             }
 
             webDriver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(30));
             webDriver.Manage().Window.Maximize();
         }
 
-        private static void InitializeChromeDriver()
+        private static void InitializeChromeDriver(IConfigurationSection options)
         {
-            ChromeOptions options = new ChromeOptions();
-
-            webDriver = new ChromeDriver(options);
+            ChromeOptions chromeOptions = new ChromeOptions();
+            ConfigureDriverOptions(options, chromeOptions);
+            webDriver = new ChromeDriver(chromeOptions);
         }
 
-        private static void InitializeFirefoxDriver()
+        private static void InitializeFirefoxDriver(IConfigurationSection options)
         {
-            FirefoxOptions options = new FirefoxOptions();
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            ConfigureDriverOptions(options, firefoxOptions);
+            webDriver = new FirefoxDriver(firefoxOptions);
+        }
 
-            webDriver = new FirefoxDriver(options);
+        private static void ConfigureDriverOptions(IConfigurationSection options, DriverOptions driverOptions)
+        {
+            foreach (var option in options.GetSection("Options").GetChildren())
+            {
+                string oprionName = option.Key;
+                string optionValue = option.Value!;
+                driverOptions.AddAdditionalOption(oprionName, optionValue);
+            }
         }
 
         public static void QuitDriver()
