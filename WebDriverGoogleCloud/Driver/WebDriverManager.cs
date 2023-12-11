@@ -50,9 +50,16 @@ namespace WebDriverGoogleCloud.Driver
                 default:
                     throw new ArgumentException("Invalid browser specified in the configuration file.");
             }
-            
+
             webDriver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(30));
             webDriver.Manage().Window.Maximize();
+        }
+
+        private static void InitializeChromeDriver()
+        {
+            ChromeOptions options = new ChromeOptions();
+
+            webDriver = new ChromeDriver(options);
         }
 
         public static void QuitDriver()
