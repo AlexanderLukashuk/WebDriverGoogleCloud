@@ -10,8 +10,6 @@ namespace WebDriverGoogleCloud.Pages
     {
         public EmailPage(IWebDriver driver) : base(driver) {}
 
-        // public IWebElement EmailElement => WebDriver.FindElement(By.XPath("//*[@id=\"mail\"]"));
-
         public string GenerateEmail()
         {
             ((IJavaScriptExecutor)WebDriver).ExecuteScript("window.open();");
@@ -23,8 +21,6 @@ namespace WebDriverGoogleCloud.Pages
             IWebElement emailElement = WebDriver.FindElement(By.XPath("//*[@id=\"mail\"]"));
 
             string email = emailElement.Text;
-
-            // Clipboard.SetText(email);
 
             return email;
         }

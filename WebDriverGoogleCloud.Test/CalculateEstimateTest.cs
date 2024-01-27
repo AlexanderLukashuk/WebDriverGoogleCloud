@@ -40,7 +40,7 @@ namespace WebDriverGoogleCloud.Test
             steps.GenerateEmail();
             string emailText = steps.SendEmail();
 
-            Assert.AreEqual("Total Estimated Monthly Cost", emailText);
+            Assert.That(emailText, Is.EqualTo("Total Estimated Monthly Cost"));
         }
 
         [Obsolete]

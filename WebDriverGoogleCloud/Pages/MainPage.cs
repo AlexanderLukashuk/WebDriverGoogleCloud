@@ -20,7 +20,6 @@ namespace WebDriverGoogleCloud.Pages
         {
             SearchIcon.Click();
 
-            // SearchField.SendKeys("Google Cloud Platform Pricing Calculator");
             SearchField.SendKeys(searchString);
 
             SearchField.SendKeys(Keys.Enter);

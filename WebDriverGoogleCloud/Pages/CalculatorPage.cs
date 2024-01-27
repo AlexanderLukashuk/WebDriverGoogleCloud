@@ -101,8 +101,6 @@ namespace WebDriverGoogleCloud.Pages
 
         public void SendEmail()
         {
-            // IWebElement emailEstimate = WebDriver.FindElement(By.XPath("//*[@id=\"Email Estimate\"]"));
-
             string email = EmailPage.GenerateEmail();
 
             WebDriver.SwitchTo().Window(WebDriver.WindowHandles.First());
